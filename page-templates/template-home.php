@@ -23,7 +23,7 @@ get_header();
 			<div class="banner-content">
 				<h2 class="banner-title txt-fx"><?php echo $banner_heading;?></h2>
 				<div class="btn-wrap">
-					<a href="<?php echo $banner_button_target;?>" class="btn-with-line"><?php echo $banner_button_text;?></a>
+					<a href="<?php echo $banner_button_link['url']; ?>" class="btn-with-line"><?php echo $banner_button_text;?></a>
 				</div>
 			</div>
 		</div>
@@ -83,7 +83,7 @@ get_header();
 
                 ?>
 				<div class="btn-wrap">
-					<a href="<?php echo $about_button_target;?>" class="btn btn-accent btn-xlarge btn-rounded"><?php echo  get_field('about_button_text');;?></a>
+					<a href="<?php echo $about_button_link['url'];?>" class="btn btn-accent btn-xlarge btn-rounded"><?php echo  get_field('about_button_text');;?></a>
 				</div>
                 <?php endif;?>
 
@@ -307,9 +307,16 @@ get_header();
 		</div>
 		<div class="row">
 			<div class="col">
+			<?php if(get_field('blog_page_link')) :
+                
+                $blog_page_link   = get_field('blog_page_link');
+                $blog_page_link_target   = $blog_page_link['target'] ? $blog_page_link['target'] : '_self';
+
+                ?>
 				<div class="btn-wrap align-center">
-					<a href="#" class="btn btn-xlarge btn-accent btn-rounded">View all blog</a>
+					<a href="<?php echo $blog_page_link['url'];?>" class="btn btn-xlarge btn-accent btn-rounded"><?php echo the_field('blog_page_link_text');?></a>
 				</div>
+				<?php endif;?>
 			</div>
 		</div>
 	</div>

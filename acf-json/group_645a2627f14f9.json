@@ -566,6 +566,40 @@
             "maxlength": ""
         },
         {
+            "key": "field_645cec6f04401",
+            "label": "Blog Page Link",
+            "name": "blog_page_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_645cec9604402",
+            "label": "Blog Page Link text",
+            "name": "blog_page_link_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_645a2b575027c",
             "label": "Contact Section",
             "name": "",
@@ -888,5 +922,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1683790540
+    "modified": 1683812104
 }

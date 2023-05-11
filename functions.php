@@ -139,6 +139,14 @@ function theme_widgets_init() {
 }
 add_action( 'widgets_init', 'theme_widgets_init' );
 ?>
+<!-- <script>
 
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+
+location = 'http://example.com/';
+
+}, false );
+
+</script> -->
 
 		

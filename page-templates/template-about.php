@@ -4,6 +4,41 @@
 */
 get_header();
 ?>
+<div class="site-banner">
+	<div class="banner-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">			
+					<div class="colored">
+						<h1>About Us</h1>
+						<div class="breadcum-items">
+							<span class="item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home /</a></span>
+							<span class="item colored">About Us</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!--site-banner-->
+<section class="chief-detail padding-large">
+	<div class="container">
+		<div class="row">
+		  	<?php if(get_field('ceo_image')) :
+		  	$size        = 'full';
+			$ceo_image = get_field('ceo_image');
+			?>
+				<div class="single-image col-md-6">
+					<img src="<?php echo wp_get_attachment_image_url($ceo_image, $size); ?>" alt="ceo" class="singleImg">
+				</div>
+				<div class="col-md-6 p-5 text-center align-self-center">
+					<h2 class="section-title text-center mb-3"><?php echo get_field('ceo_name');?></h2>
+					<?php echo get_field('about_ceo');?>
+				</div>
+			<?php endif;?>	
+		</div>
+	</div>
+</section>
 <?php if(get_field('team_section_heading')) :?>
 <section class="our-team bg-sand padding-large">
 	<h2 class="section-title text-center mb-4"><?php  the_field('team_section_heading');?></h2>

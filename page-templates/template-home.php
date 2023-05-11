@@ -141,29 +141,47 @@ get_header();
 					<?php }?>
 				
 					</ul>
-
+					
 					<div class="tab-content">
-					  <div id="all" data-tab-content class="active">
+					
+					<div id="all" data-tab-content class="active">
+					
 					  	<div class="grid">
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab1.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab4.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab4.jpg"  class="tab-image"></a>
-				    	 </div>
+						  <?php
+						$wp_query = new WP_Query( array(
+							'post_type' => 'portfolio',
+							'posts_per_page' => 6,
+						));
+						if ($wp_query->have_posts()) :
+						?>
+					  	<?php
+						while ($wp_query->have_posts()) : $wp_query->the_post();
+						
+						?>
+						  
+				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><?php the_content();?></a>
+				    	  <!-- <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab2.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab3.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //ec//ho get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab4.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab3.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab4.jpg"  class="tab-image"></a> -->
+						  <?php endwhile;endif;wp_reset_query();?>
+						</div>
+						
 					  </div>
-					  <div id="houses" data-tab-content>
+					   
+					  
+					  <!-- <div id="houses" data-tab-content>
 					  	<div class="grid">
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab4.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab1.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab1.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab4.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab3.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab2.jpg"  class="tab-image"></a>
+				    	  <a href="<?php // echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab1.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab2.jpg"  class="tab-image"></a>
+				    	  <a href="<?php //echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab1.jpg"  class="tab-image"></a>
 				    	 </div>
-					  </div>
-					  <div id="buildings" data-tab-content>
+					  </div> -->
+					  <!-- <div id="buildings" data-tab-content>
 					  	<div class="grid">
 				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab1.jpg"  class="tab-image"></a>
 				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab3.jpg"  class="tab-image"></a>
@@ -202,9 +220,10 @@ get_header();
 				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab3.jpg"  class="tab-image"></a>
 				    	  <a href="<?php echo get_stylesheet_directory_uri(); ?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tab4.jpg"  class="tab-image"></a>
 				    	 </div>
-					  </div>
+					  </div> -->
 
 					</div>
+					
 					
 				</div>
 
@@ -278,10 +297,9 @@ get_header();
                     <?php if(get_field('subscribe_content')) :?>
                         <?php  the_field('subscribe_content');?>
                         <?php endif;?>
-					<form id="form">
-						<input type="text" name="email" placeholder="enter your email address">
-						<button class="btn btn-accent btn-rounded btn-full btn-xlarge">Subscribe</button>
-					</form>
+					<div id="form">	
+					<?php echo do_shortcode(get_field('subscribe_short_code')); ?>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -346,36 +364,7 @@ get_header();
 						</div>
 						<?php endwhile;endif;wp_reset_query();?>
 
-						<!-- <div class="col-md-4">
-
-							<article class="post-item">
-								<figure>
-									<a href="#" class="image-hvr-effect">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/postimg2.jpg" alt="post" class="post-image">
-									</a>
-								</figure>
-								<div class="post-content">	
-									<div class="meta-date">Mar 29, 2021</div>			
-								    <h3 class="post-title"><a href="#">How to make minimalist living rooms pop-out</a></h3>
-								    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla blandit dui.</p>
-								</div>
-							</article>
-						</div> -->
-
-						<!-- <div class="col-md-4">
-							<article class="post-item">
-								<figure>
-									<a href="#" class="image-hvr-effect">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/postimg3.jpg" alt="post" class="post-image">
-									</a>
-								</figure>
-								<div class="post-content">		
-									<div class="meta-date">Mar 27, 2021</div>			
-								    <h3 class="post-title"><a href="#">how to make your resort that looks outstanding</a></h3>
-								    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis nulla blandit dui.</p>
-								</div>
-							</article>
-						</div> -->
+						
 
 					</div>
 				</div>
@@ -416,26 +405,10 @@ get_header();
 						<h2 class="section-title light"><?php echo the_field('contact_heading');?></h2>
 					</div>
 					
-					<?php echo the_field('contact_details');?>
-					
-					<form id="form-contact" class="form-light" action="contact.php" method="post">
-						<p>
-						<input type="text" name="name" placeholder="Your Full Name*" required>
-						</p>
-						<p>
-						<input type="text" name="email" placeholder="Your Email Address" required>
-						</p>
-						<p>
-						<textarea name="message" placeholder="Your Message" required></textarea>
-						</p>
-						<p>
-						<label for="agree">
-							<input id="agree" name="agree" type="checkbox" required></input>
-							<span>I agree to privacy policy</span>
-						</label>
-						</p>
-						<button class="btn btn-accent btn-rounded btn-xlarge btn-full">Submit</button>
-					</form>
+					<?php echo the_field('contact_subheading');?>
+					<div id="form-contact" class="form-light">
+					<?php echo do_shortcode(get_field('form_shortcode')); ?>
+					</div>
 
 
 				</div>

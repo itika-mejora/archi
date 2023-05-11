@@ -27,7 +27,7 @@ get_header(); ?>
 	</div>
 
 </section>
-hello
+
 <section id="latest-blog" class="scrollspy-section padding-large">
 	<div class="container">
 	
@@ -42,7 +42,7 @@ hello
 					<?php
 						$wp_query = new WP_Query( array(
 							'post_type' => 'portfolio',
-							'posts_per_page' => 6,
+							'posts_per_page' => 9,
 						));
 						if ($wp_query->have_posts()) :
 						?>

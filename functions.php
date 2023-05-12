@@ -3,7 +3,7 @@
 function add_theme_scripts() {
     
    //Styles
-    wp_enqueue_style( 'font-style', 'https://icomoon.io/#docs/local-fonts',false, null,'all');
+    
     wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css',false, null,'all');
     wp_enqueue_style( 'template-style', get_template_directory_uri() . '/css/normalize.css',false, null,'all');
     wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . '/icomoon/icomoon.css"',false, null,'all');

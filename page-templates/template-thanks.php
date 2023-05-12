@@ -33,6 +33,7 @@ get_header();
 				<?php if(get_field('contact_details') ) { 
                         while(has_sub_field('contact_details') ) { ?>
 					<div class="detail mr-6 mb-4">
+						
 						<h3><?php echo the_sub_field('contact_name');?></h3>
 						<ul class="list-unstyled">
 						<?php if(get_sub_field('contact_list') ) { 

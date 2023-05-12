@@ -81,9 +81,7 @@
 	</div>
 </div>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-3.2.1.min.js"></script>
-<!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/ui-easing.js"></script> -->
-<!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/plugins.js"></script> -->
-<!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/script.js"></script> -->
+
 
 <?php wp_footer(); ?>
 

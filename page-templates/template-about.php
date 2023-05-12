@@ -64,18 +64,19 @@ get_header();
 							<h4><?php echo $member_name;?></h4>
 							<div class="designation colored"><?php echo $member_designation;?></div>
 							<?php echo  $member_details ;?>
-                            <?php if(get_sub_field('member_social_share') ) { 
+                            
+							<div class="social-links color-primary ">
+							<?php if(get_sub_field('member_social_share') ) { 
                                 while(has_sub_field('member_social_share') ) {
                                     $social_class  = get_sub_field('social_class');
                                     $social_link   = get_sub_field('social_link');
                                     $social_link_target = $social_link['target'] ? $social_link['target'] : '_self'; 
                                     ?>
-							<div class="social-links color-primary ">
-								<a href="<?php echo $social_link_target;?>" class="<?php echo $social_class;?>"></a>
-								<!-- <a href="#" class="icon icon-twitter pr-10"></a>
-								<a href="#" class="icon icon-pinterest-p"></a> -->
+								
+								<a href="<?php echo $social_link['url'];?>" class="<?php echo $social_class;?>"></a>
+								<?php } }?>
 							</div>
-                            <?php } }?>
+                            
 						</div>
 
 					</div>

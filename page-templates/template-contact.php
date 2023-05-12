@@ -43,14 +43,14 @@ get_header();
                 </div><!--detail-->
                 <div class="detail mb-4">
                     <h3>Social Links</h3>
+                    
+                    <div class="social-links flex-container">
                     <?php if(get_field('social_details') ) { 
                         while(has_sub_field('social_details') ) { ?>
-                    <div class="social-links flex-container">
-                    
                         <a href="<?php echo the_sub_field('social_link');?>" class="<?php echo the_sub_field('social_icon');?>"></a>
-                        
+                        <?php } }?>  
                     </div>
-                    <?php } }?><!--social-links-->
+                    <!--social-links-->
                 </div><!--detail-->
 
             </div><!--contact-detail-->
@@ -58,9 +58,9 @@ get_header();
 
         <div class="col-md-6 p-0">
             
-            <div class="contact-information">
-                <h2>Send A Message</h2>
-                <div class="contact-form mt-4">
+            <div  class="contact-information" >
+                <h2><?php echo the_field('contact_detail_heading');?></h2>
+                <div class="contact-form mt-4"  name="contactform">
                 <?php echo do_shortcode(get_field('form_shortcode')); ?>
                 </div>
 

@@ -118,6 +118,8 @@ function theme_widgets_init() {
     register_sidebar( array(
         'name'          => 'Footer Contact',
         'id'            => 'footer_contact',
+        'before_widget' => '<div>',
+        'after_widget'  => '</div>',
         
         
     ) );

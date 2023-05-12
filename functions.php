@@ -74,6 +74,16 @@ function portfolio_post_type() {
     );
 
     register_post_type( 'portfolio', $args );
+    register_post_type( 'portfolio', $args );
+    register_taxonomy( 'portcategories', array('portfolio'), array(
+        'hierarchical' => true, 
+        'label' => 'Portcategories', 
+        'singular_label' => 'Portcategory', 
+        'rewrite' => array( 'slug' => 'portcategories', 'with_front'=> false )
+        )
+    );
+    register_taxonomy_for_object_type( 'portcategories', 'portfolio' ); //add taxonomy
+
 }
 add_action( 'init', 'portfolio_post_type', 0 );
 // actine menu......
@@ -154,7 +164,7 @@ add_action( 'wp_footer', 'redirect_cf7' );
 function redirect_cf7() { ?>
     <script>
         document.addEventListener( 'wpcf7mailsent', function( event ) {
-            _location = 'http://localhost/archi/thankyou-page/';
+            _location = '<?php echo esc_url( home_url( '/thankyou-page' ) ); ?>';
             window.open(_location, "MsgWindow");
         }, false );
     </script>

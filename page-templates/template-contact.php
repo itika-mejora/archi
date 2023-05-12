@@ -5,17 +5,17 @@
 get_header();
 ?>
 <section class="hero-section jarallax">
-
-<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/main-banner1.jpg" class="jarallax-img">
-
+<div class="jarallax-img">
+<?php the_post_thumbnail(); ?>
+</div>
 <div class="hero-content padding-xlarge">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-title">Contact us</h1>
+                <h1 class="page-title"><?php the_title();?></h1>
                 <div class="breadcrumbs">
                     <span class="item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home /</a></span>
-                    <span class="item">Contact us</span>
+                    <span class="item"><?php the_title();?></span>
                 </div>
             </div>
         </div>

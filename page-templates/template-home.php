@@ -116,26 +116,18 @@ get_header();
 			<div class="col-md-12">
 				
 				<div class="portfolio-tabs">
+					<ul class="tabs">
 					<?php
-					$args = array(
-								'taxonomy' => 'category',
-								'orderby' => 'name',
-								'order'   => 'ASC'
-							);
-
-					$cats = get_categories($args);?>
+					 $categories = get_terms('category', array('parent' => 0, 'orderby' => 'id', 'hide_empty' => true));   
+					 foreach ($categories as $term) {?>
 
 					
 
-					<ul class="tabs">
-					  <li data-tab-target="#all" class="active tab">All</li>
-					  <?php
-					  foreach($cats as $cat) {
-					?>
+					
 					<li  class="tab">
 					
-						<a href="<?php echo get_category_link( $cat->term_id ) ?>">
-							<?php echo $cat->name; ?>
+						<a href="<?php echo get_term_link( $term );?>">
+						<?php echo $term->name;?>
 						</a>
 					</li> 
 					<?php }?>

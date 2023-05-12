@@ -10,10 +10,10 @@ get_header();
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">			
-					<h1 class="page-title">Thank You!</h1>
+					<h1 class="page-title"><?php the_title();?></h1>
 					<div class="breadcrumbs">
 						<span class="item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home /</a></span>
-						<span class="item colored">Thank you</span>
+						<span class="item colored"><?php the_title();?></span>
 					</div>
 				</div>
 			</div>
@@ -27,45 +27,22 @@ get_header();
 		<div class="row">
 				<div class="col-md-6 p-0 mb-3">
 					<div class="container">
-					<h2>Get in Touch</h2>
+					<h2><?php echo the_field('banner_heading');?></h2>
 
 				<div class="contact-detail d-flex flex-wrap mt-4">
+				<?php if(get_field('contact_details') ) { 
+                        while(has_sub_field('contact_details') ) { ?>
 					<div class="detail mr-6 mb-4">
-						<h3>Phones</h3>
+						<h3><?php echo the_sub_field('contact_name');?></h3>
 						<ul class="list-unstyled">
-							<li><i class="icon icon-phone"></i>+1650-243-00023</li>
-							<li><i class="icon icon-phone"></i>+1650-243-00021</li>
+						<?php if(get_sub_field('contact_list') ) { 
+                        while(has_sub_field('contact_list') ) { ?>
+							<li><i class="<?php echo the_sub_field('contact_class');?>"></i><?php echo the_sub_field('contact_text');?></li>
+						<?php } }?>	
 						</ul>
-					</div><!--detail-->
-					<div class="detail mb-4">
-						<h3>Emails</h3>
-						<ul class="list-unstyled">
-							<li>
-								<i class="icon icon-envelope-o"></i>
-								<a href="mailto:info@yourcompany.com">info@yourcompany.com</a>
-							</li>
-						</ul>
-					</div><!--detail-->
-					<div class="address detail mb-4">
-						<h3>Address</h3>
-						<ul class="list-unstyled">
-							<li>
-								<i class="icon icon-map-marker"></i>
-								<span>North Melbourne VIC 3051, Australia</span>
-							</li>
-						</ul>
-					</div><!--detail-->		
-								
-					<div class="detail mb-4">
-						<h3>Social Links</h3>
-						<div class="social-links flex-container">
-							<a href="#" class="icon icon-facebook"></a>
-							<a href="#" class="icon icon-twitter"></a>
-							<a href="#" class="icon icon-pinterest-p"></a>
-							<a href="#" class="icon icon-youtube"></a>
-							<a href="#" class="icon icon-linkedin"></a>
-						</div><!--social-links-->
-					</div><!--detail-->
+					</div>
+					<?php } }?><!--detail-->
+					
 
 				</div><!--contact-detail-->
 				</div>
@@ -75,8 +52,8 @@ get_header();
 				<div class="container">
 					<div class="row">
 						<div class="contact-information col-md-12">
-						<h2>Thank you</h2>
-						<p>We will get back to you as soon as possible.</p>
+						<h2><?php echo the_field('contact_info_heading');?></h2>
+						<p><?php echo the_field('contact_info_subheading');?></p>
 						</div><!--contact-information-->
 					</div>
 				</div>

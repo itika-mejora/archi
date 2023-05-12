@@ -10,10 +10,10 @@ get_header();
 			<div class="row">
 				<div class="col-md-12">			
 					<div class="colored">
-						<h1>About Us</h1>
+						<h1><?php the_title();?></h1>
 						<div class="breadcum-items">
 							<span class="item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home /</a></span>
-							<span class="item colored">About Us</span>
+							<span class="item colored"><?php the_title();?></span>
 						</div>
 					</div>
 				</div>

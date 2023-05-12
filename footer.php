@@ -36,10 +36,9 @@
 			<div class="col-md-4">
 			<?php if ( is_active_sidebar( 'footer_contact' )) : ?>
 				<div class="footer-menu widget-contact-info">
-					<h5>Contact info</h5>
-					<ul class="menu-list">
+					
 					<?php dynamic_sidebar( 'footer_contact' ); ?>
-					</ul>
+					
 				</div>
 				<?php endif;?>
 

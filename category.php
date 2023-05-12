@@ -5,7 +5,9 @@
 
     get_header(); ?> 
 
-<?php $pageID = get_option('page_on_front');
+<?php 
+$current_term = $wp_query->get_queried_object();
+$pageID = get_option('page_on_front');
 echo $pageID; 
 ;?>
 <?php if (have_rows('banner_slider',$pageID)) : ?>
@@ -131,18 +133,25 @@ if ( $arr_posts->have_posts() ) :?>
 				<div class="portfolio-tabs">
 
 					<ul class="tabs">
+					<?php
+					 $categories = get_terms('category', array('parent' => 0, 'orderby' => 'id', 'hide_empty' => true));   
+					 foreach ($categories as $term) {?>
+
 					
-					 <li  class="tab">
+
 					
+					<li  class="<?php if($current_term->term_id==$term->term_id){?>
+          					active <?php }else?>tab">
 					
-					 
-					 <?php single_cat_title(); ?>
+						<a href="<?php echo get_term_link( $term );?>">
+						<?php echo $term->name;?>
 						</a>
-					</a>
-				</li> 
-				
+					</li> 
 					
-				 
+					
+
+					<?php }?>
+				
 					</ul>
 
 					<div class="tab-content">
@@ -153,65 +162,12 @@ if ( $arr_posts->have_posts() ) :?>
 						  <?php while ( $arr_posts->have_posts() ) :
                     $arr_posts->the_post();?>
 				    	  <a href="<?php echo get_stylesheet_directory_uri();?>/images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><?php the_content();?></a>
-				    	  <!-- <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a> -->
+				    	 
 						  <?php endwhile;?> 
 						</div>
 						
 					  </div>
-					  <!-- <div id="houses" data-tab-content>
-					  	<div class="grid">
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab1.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab1.jpg"  class="tab-image"></a>
-				    	 </div>
-					  </div>
-					  <div id="buildings" data-tab-content>
-					  	<div class="grid">
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab1.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	 </div>
-					  </div>
-					  <div id="hotels" data-tab-content>
-					  	<div class="grid">
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab1.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	 </div>
-					  </div>
-					  <div id="interior" data-tab-content>
-					  	<div class="grid">
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab1.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	 </div>
-					  </div>
-					  <div id="living-room" data-tab-content>
-					  	<div class="grid">
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab1.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab2.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab3.jpg"  class="tab-image"></a>
-				    	  <a href="images/spacejoy.jpg" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><img src="images/tab4.jpg"  class="tab-image"></a>
-				    	 </div>
-					  </div> -->
+					
 
 					</div>
 					

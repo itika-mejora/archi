@@ -39,6 +39,8 @@ get_header(); ?>
 				<div class="post-grid">
 					<div class="row">
 					<?php
+					$categories = get_terms('portcategories', array('parent' => 0, 'orderby' => 'id', 'hide_empty' => true));   
+					foreach ($categories as $term) {
 						$wp_query = new WP_Query( array(
 							'post_type' => 'portfolio',
 							'posts_per_page' => 9,
@@ -58,14 +60,14 @@ get_header(); ?>
 
 								<div class="post-content">	
 									<div class="meta-date"><?php the_time( 'F j.Y' ); ?></div>			
-								    <h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-								    <?php the_content();?>
+								    <h3 class="post-title"><a href="<?php the_permalink(); ?>">Category:<?php echo $term->name;?></a></h3>
+								    <?php the_post_thumbnail(); ?>
 								</div>
 							</article>
 
 						</div>
 						<?php endwhile; endif; wp_reset_query();?>	
-
+						<?php }?>
 						
 
 					</div>

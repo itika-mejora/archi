@@ -25,6 +25,9 @@ add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 // thumbmail support//
 function my_theme_setup(){
     add_theme_support('post-thumbnails');
+    
+    add_image_size( 'image-link', 365, 292, true );
+    add_image_size( 'chocolat-img', 1920, 900, true );
 }
 // This adds support for pages only:
     add_theme_support( 'post-thumbnails', array( 'post', 'page' ) ); 
@@ -70,7 +73,7 @@ function portfolio_post_type() {
      'exclude_from_search' => false,
      'publicly_queryable'  => true,
      'capability_type'     => 'post',
-     'taxonomies'          => array( 'category' ),
+     
     );
 
     register_post_type( 'portfolio', $args );

@@ -40,14 +40,11 @@ get_header(); ?>
 				<div class="post-grid">
 					<div class="row">
 					<?php
-						$wp_query = new WP_Query( array(
-							'post_type' => 'portfolio',
-							'posts_per_page' => 9,
-						));
+						
 						if ($wp_query->have_posts()) :
-						?>
-						<?php
+						
 						while ($wp_query->have_posts()) : $wp_query->the_post();
+						$url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
 						
 						?>
 						
@@ -60,12 +57,13 @@ get_header(); ?>
 								<div class="post-content">	
 									<div class="meta-date"><?php the_time( 'F j.Y' ); ?></div>			
 								    <h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-								    <?php the_content();?>
+									
+				    	  <a href="<?php echo $url[0];?>" data-lightbox-gallery="gallery1" title="Calm Before The Storm (One Shoe Photography Ltd.)" class="image-link"><?php the_post_thumbnail(); ?></a>
 								</div>
 							</article>
 
 						</div>
-						<?php endwhile; endif; wp_reset_query();?>	
+						<?php endwhile; endif; ?>	
 
 						
 

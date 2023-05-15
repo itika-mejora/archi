@@ -21,6 +21,7 @@ get_header();
 		</div>
 	</div>
 </div><!--site-banner-->
+<!-- ---------------------Intro Of CEO Section---------------- -->
 <section class="chief-detail padding-large">
 	<div class="container">
 		<div class="row">
@@ -39,6 +40,8 @@ get_header();
 		</div>
 	</div>
 </section>
+<!-- --------------------------------end Of CEO Section----------------------- -->
+<!-- --------------------------------------------Team Section - ------------>
 <?php if(get_field('team_section_heading')) :?>
 <section class="our-team bg-sand padding-large">
 	<h2 class="section-title text-center mb-4"><?php  the_field('team_section_heading');?></h2>
@@ -53,40 +56,34 @@ get_header();
                 $member_details       = get_sub_field('about_member');
                 ?>
 				<div class="col-md-3 ">
-
-					<div class="team-member text-center">
-						
+					<div class="team-member text-center">						
 						<figure>
 							<a href="#"><img src="<?php echo wp_get_attachment_image_url( $member_image , $size); ?>" alt="post" class="member-image"></a>
 						</figure>
-
 						<div class="member-details text-center">
 							<h4><?php echo $member_name;?></h4>
 							<div class="designation colored"><?php echo $member_designation;?></div>
-							<?php echo  $member_details ;?>
-                            
+							<?php echo  $member_details ;?>                           
 							<div class="social-links color-primary ">
 							<?php if(get_sub_field('member_social_share') ) { 
-                                while(has_sub_field('member_social_share') ) {
+                                  while(has_sub_field('member_social_share') ) {
                                     $social_class  = get_sub_field('social_class');
                                     $social_link   = get_sub_field('social_link');
                                     $social_link_target = $social_link['target'] ? $social_link['target'] : '_self'; 
                                     ?>
-								
-								<a href="<?php echo $social_link['url'];?>" class="<?php echo $social_class;?>"></a>
+								  <a href="<?php echo $social_link['url'];?>" class="<?php echo $social_class;?>"></a>
 								<?php } }?>
-							</div>
-                            
+							</div>                            
 						</div>
-
 					</div>
-
 				</div><!--col-md-3-->
                 <?php endwhile;?>
-	</div>
+			</div>
     <?php endif;?>
 </section>
 <?php endif;?>
+<!-- ----------------------------------end Of Team Section--------------------- -->
+<!-- ----------------------------Target Section Start------------------- -->
 <section class="our-targets padding-large">
 	<div class="container">
         <?php if(get_field('target_section_heading')) :?>
@@ -112,28 +109,24 @@ get_header();
 				<div id="<?php echo get_sub_field('target_content_id');?>" class="<?php echo get_sub_field('target_content_class');?>" aria-expanded="true" >
 					<div class="accordion-body"> 
 						<div class="target-detail">
-						<?php echo get_sub_field('target_details');?>
+							<?php echo get_sub_field('target_details');?>
 						</div>
-				</div>
+				    </div>
 				</div>
 			</div>
             <?php } }?><!--panel-->
-
-			
-
 		</div><!--panel-group-->
-        <?php endif;?>
-
+          <?php endif;?>
 		</div>
 	</div>
 </section>
-
+<!-- --------------------------------------end of Target Section------------------------- -->
+<!-- ----------------------------------------Achieve Section Start ------------------------------ -->
 <section class="our-achivement bg-sand padding-large">
 	<div class="container">
             <?php if(get_field('moment_heading')) :?>
 			<h2 class="section-title text-center mb-5"><?php the_field('moment_heading'); ?></h2>
             <?php endif;?>
-
 		<div class="row">
         <?php if(get_field('achievement_details') ) { 
                    while(has_sub_field('achievement_details') ) { 
@@ -149,9 +142,9 @@ get_header();
 				</div>
 			</div><!--achivement-block-->
 			<?php } }?>
-
 		</div>
 	</div>
 </section>
+<!-- ----------------end of Achievement  Section -------------------------------------------------->
 
 <?php get_footer(); ?>
